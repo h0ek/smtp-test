@@ -1,5 +1,5 @@
 # smtp test
-Sedn emails from PowerShell
+Sedn emails using PowerShell and Python
 
 When I was testing email servers and smtp relay and was able to send unauthorised emails via a Telnet session, I wrote myself a script like this to automate the sending of spoofed emails. Perhaps someone will find it useful.
 
