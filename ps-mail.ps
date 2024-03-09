@@ -1,0 +1,36 @@
+# Script to help test SMTP servers/relays and spoof messages
+# By hoek from 0ut3r.space
+
+# Setting up the sender email address
+$From = sender@example.com
+
+# Setting up the recipient email address
+$To = recipient@kexample.com
+
+# Setting up the email subject
+$Subject = "Test Subject"
+
+# Setting up the email body content, can be html or text
+$Body = "Test Body"
+
+# Defining additional email headers including MIME version and content type
+$Headers = @{
+    "MIME-Version" = "1.0"
+    "Content-Type" = "text/html; charset=UTF-8"
+}
+
+# Constructing headers string for the email
+$HeadersString = ""
+foreach ($key in $Headers.Keys) {
+    $HeadersString += "$($key): $($Headers[$key])`r`n"
+}
+
+# Setting up the SMTP server address, domain or IP
+$SmtpServer = "example-smtp.server"
+
+# Setting up the SMTP server port
+$Port = 25
+
+# Sending the email using Send-MailMessage cmdlet with specified parameters
+Send-MailMessage -From $From -To $To -Subject $Subject -Body $Body -BodyAsHtml -SmtpServer $SmtpServer -Port $Port -Encoding ([System.Text.Encoding]::UTF8) 
+#remove -BodyAsHtml to send it as plain text
