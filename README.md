@@ -37,3 +37,18 @@ This is a test message.
 .
 ```
 Source: https://learn.microsoft.com/en-us/exchange/mail-flow/test-smtp-telnet?view=exchserver-2019
+
+In a simple way:
+```
+PUTTY.EXE -telnet mail.server.com 25
+helo localhost
+ehlo localhost
+mail from: test@test.com
+rcpt to: user@test.com
+Mime-Version: 1.0
+data
+Subject: Test
+Content-Type: text/plain #OR Content-Type: text/html
+message #OR HTML body
+.
+```
